@@ -1,0 +1,1 @@
+lmp-partner-qualcomm-image.inc

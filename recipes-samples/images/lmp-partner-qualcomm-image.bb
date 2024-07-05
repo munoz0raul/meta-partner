@@ -8,6 +8,27 @@ require ${@bb.utils.contains('DISTRO_FEATURES', 'sota', 'recipes-samples/images/
 # Enable wayland related recipes if required by DISTRO
 require ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'recipes-samples/images/lmp-feature-wayland.inc', '', d)}
 
+# Enable OP-TEE related recipes if provided by the image
+require ${@bb.utils.contains('MACHINE_FEATURES', 'optee', 'recipes-samples/images/lmp-feature-optee.inc', '', d)}
+
+# Enable SE05X related recipes if provided by machine
+require ${@bb.utils.contains('MACHINE_FEATURES', 'se05x', 'recipes-samples/images/lmp-feature-se05x.inc', '', d)}
+
+# Enable TPM2 related recipes if provided by machine
+require ${@bb.utils.contains('MACHINE_FEATURES', 'tpm2', 'recipes-samples/images/lmp-feature-tpm2.inc', '', d)}
+
+# Enable EFI support if provided by machine
+require ${@bb.utils.contains('MACHINE_FEATURES', 'efi', 'recipes-samples/images/lmp-feature-efi.inc', '', d)}
+
+# Enable IMA support if required by DISTRO
+require ${@bb.utils.contains('MACHINE_FEATURES', 'ima', 'recipes-samples/images/lmp-feature-ima.inc', '', d)}
+
+# Enable Xenomai4 related recipes if provided by the image
+require ${@bb.utils.contains('MACHINE_FEATURES', 'xeno4', 'recipes-samples/images/lmp-feature-xeno4.inc', '', d)}
+
+# Enable jailhouse related recipes if provided by the machine
+require ${@bb.utils.contains('MACHINE_FEATURES', 'jailhouse', 'recipes-samples/images/lmp-feature-jailhouse.inc', '', d)}
+
 require recipes-samples/images/lmp-feature-softhsm.inc
 require recipes-samples/images/lmp-feature-wireguard.inc
 require recipes-samples/images/lmp-feature-docker.inc
@@ -31,27 +52,4 @@ CORE_IMAGE_BASE_INSTALL += " \
     ${@bb.utils.contains('LMP_DISABLE_GPLV3', '1', '', '${CORE_IMAGE_BASE_INSTALL_GPLV3}', d)} \
 "
 
-CORE_IMAGE_BASE_INSTALL:append:qcom = " \
-    packagegroup-qcom-initscripts \
-    wlan-conf \
-    cld80211-lib \
-    common-tools \
-    ath6kl-utils \
-    ftm \
-    kernel-module-wlan-platform \
-    kernel-module-qcacld-wlan \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', '${CORE_IMAGE_BASE_INSTALL_WAYLAND}', '', d)} \
-"
-
-# qcom uses weston-launch (via init_display.service)
-CORE_IMAGE_BASE_INSTALL:remove:qcom = " \
-    weston-init \
-"
-CORE_IMAGE_BASE_INSTALL_WAYLAND ?= ""
-CORE_IMAGE_BASE_INSTALL_WAYLAND:qcom = " \
-    packagegroup-qcom-display \
-    packagegroup-qcom-fastcv \
-    packagegroup-qcom-graphics \
-    packagegroup-qcom-video \
-    packagegroup-qcom-iot-base-utils \
-"
+include lmp-partner-image.inc
