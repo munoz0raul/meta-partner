@@ -11,27 +11,7 @@ IMAGE_QCOMFLASH_ESPIMG ?= "${DEPLOY_DIR_IMAGE}/efi.bin"
 IMAGE_QCOMFLASH_FS_TYPE ??= "ext4"
 IMAGE_QCOMFLASH_ROOTFS ?= "${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.${IMAGE_QCOMFLASH_FS_TYPE}"
 
-CONCATDTB_DIR = "${WORKDIR}/dtb"
-
-python do_combine_dtbos() {
-    import os, shutil, subprocess
-
-    dtbdir = d.getVar('CONCATDTB_DIR')
-    if os.path.exists(dtbdir):
-        shutil.rmtree(dtbdir)
-    os.mkdir(dtbdir)
-    combined_dtb = os.path.join(dtbdir, "combined-dtb.dtb")
-    print(combined_dtb)
-
-    for dtbf in d.getVar("KERNEL_DEVICETREE").split():
-        dtb = os.path.basename(dtbf)
-        with open(combined_dtb, 'ab') as fout:
-            with open(os.path.join(d.getVar('DEPLOY_DIR_IMAGE'), dtb), 'rb') as fin:
-                shutil.copyfileobj(fin, fout)
-    joint_dtb_list = "%s %s" %(d.getVar("KERNEL_DEVICETREE"), "combined-dtb.dtb")
-}
-addtask do_combine_dtbos before do_image_combined_dtb
-do_combine_dtbos[depends] += "virtual/kernel:do_deploy"
+CONCATDTB_DIR = "${DEPLOY_DIR_IMAGE}/DTOverlays/dtb"
 
 oe_mkdtbfs() {
         fstype="$1"
@@ -204,8 +184,17 @@ python do_merge_dtbos () {
         output = dtb + "." + str(dtbos_found)
         shutil.copy2(os.path.join(dtbotpdir, output), dtoverlaydir)
         os.symlink(output, os.path.join(dtoverlaydir, dtb))
+
+        #Append latest overlayed file to combined-dtb.dtb
+        os.makedirs(os.path.join(dtoverlaydir, "dtb"), exist_ok=True)
+        combined_dtb = os.path.join(dtoverlaydir, "dtb/combined-dtb.dtb")
+        with open(combined_dtb, 'ab') as fout:
+            with open(os.path.join(dtoverlaydir,dtb), 'rb') as fin:
+                bb.debug(1, "combining: %s" % os.path.join(dtoverlaydir,dtb))
+                shutil.copyfileobj(fin, fout)
+
 }
-addtask merge_dtbos before do_image_ota
+addtask merge_dtbos before do_image_combined_dtb do_image_ota
 
 # ESP also ships DTBs
 IMAGE_CMD:ota:append() {
