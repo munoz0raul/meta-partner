@@ -1,4 +1,4 @@
-SUMMARY = "Minimal partner image which includes OTA Lite, Docker, and OpenSSH support"
+SUMMARY = "Minimal factory image which includes OTA Lite, Docker, and OpenSSH support"
 
 require recipes-samples/images/lmp-image-common.inc
 
@@ -36,6 +36,9 @@ require recipes-samples/images/lmp-feature-wifi.inc
 require recipes-samples/images/lmp-feature-ota-utils.inc
 require recipes-samples/images/lmp-feature-sbin-path-helper.inc
 
+# Add any partner layer requirements
+include recipes-samples/images/lmp-partner-image.inc
+
 IMAGE_FEATURES += "ssh-server-openssh"
 
 CORE_IMAGE_BASE_INSTALL_GPLV3 = "\
@@ -51,5 +54,3 @@ CORE_IMAGE_BASE_INSTALL += " \
     packagegroup-core-full-cmdline-extended \
     ${@bb.utils.contains('LMP_DISABLE_GPLV3', '1', '', '${CORE_IMAGE_BASE_INSTALL_GPLV3}', d)} \
 "
-
-include lmp-partner-image.inc
