@@ -127,7 +127,7 @@ create_qcomflash_pkg() {
     cd "$oldwd"
 }
 
-create_tegraflash_pkg[vardepsexclude] += "DATETIME"
+create_qcomflash_pkg[vardepsexclude] += "DATETIME"
 
 def dtbos_recipes(d):
     extra_rdepends = (d.getVar("MACHINE_EXTRA_RDEPENDS") or '').split()
