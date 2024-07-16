@@ -196,20 +196,6 @@ python do_merge_dtbos () {
 }
 addtask merge_dtbos before do_image_combined_dtb do_image_ota
 
-# ESP also ships DTBs
-IMAGE_CMD:ota:append() {
-    # Uefi dtb
-    mkdir -p ${OTA_BOOT}/dtb
-    # Workaround: Trim "addons-" from the dtb name to meet UEFI lookup needs
-    for dtb in ${KERNEL_DEVICETREE}; do
-        dtb=${dtb##*/}
-        dtb_trimmed="$(echo "$dtb" | sed -e 's:addons-::g' )"
-        bbdebug 1 "UEFI_DTB before: $dtb after: $dtb_trimmed"
-        cp ${DEPLOY_DIR_IMAGE}/DTOverlays/$dtb ${OTA_BOOT}/dtb/$dtb_trimmed
-    done
-}
-do_image_ota[depends] += "virtual/kernel:do_deploy"
-
 # Replacing from lmp due size changes (512MB) for qcm
 oe_mkotaespfs() {
         fstype="$1"
