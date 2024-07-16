@@ -24,6 +24,9 @@ TOOLCHAIN:pn-display-hal-linux = "gcc"
 # Distro Features
 DISTRO_FEATURES:append = " pulseaudio acl xattr selinux"
 
+# Qcom specific forks/updates
+PREFERRED_VERSION_wpa-supplicant ??= "2.10.qcom"
+
 # SELinux
 PREFERRED_PROVIDER_virtual/refpolicy = "refpolicy-mls"
 DISTRO_EXTRA_RDEPENDS:append = " ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', 'packagegroup-selinux-minimal', '', d)}"
