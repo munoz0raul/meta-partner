@@ -5,6 +5,11 @@ fix_usrmerge() {
             mv ${D}/lib/* ${D}${nonarch_base_libdir}
             rmdir ${D}/lib
         fi
+        if [ -d ${D}/sbin ]; then
+            install -d ${D}${base_sbindir}
+            mv ${D}/sbin/* ${D}${base_sbindir}
+            rmdir ${D}/sbin
+        fi
     fi
 }
 
