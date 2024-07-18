@@ -59,4 +59,4 @@ IMAGE_QCOMFLASH_ESPIMG:qcm6490:sota ?= "${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.ota-e
 IMAGE_QCOMFLASH_FS_TYPE:qcm6490:sota ?= "ota-ext4"
 EXTRA_IMAGECMD:ota-esp:qcm6490 = "-s 1 -S 4096"
 IMAGE_FSTYPES:remove:qcom = "wic wic.gz wic.bmap"
-OSTREE_KERNEL_ARGS:qcm6490 ?= "console=ttyMSM0,115200n8 earlycon pcie_pme=nomsi kernel.sched_pelt_multiplier=4 rcupdate.rcu_expedited=1 rcu_nocbs=0-7 kpti=off kasan=off kasan.stacktrace=off no-steal-acc page_owner=on swiotlb=128 ${OSTREE_KERNEL_ARGS_COMMON}"
+OSTREE_KERNEL_ARGS:qcm6490 ?= "console=ttyMSM0,115200n8 earlycon pcie_pme=nomsi kernel.sched_pelt_multiplier=4 rcupdate.rcu_expedited=1 rcu_nocbs=0-7 kpti=off kasan=off kasan.stacktrace=off no-steal-acc page_owner=on swiotlb=128 audit=0 ${OSTREE_KERNEL_ARGS_COMMON}"
