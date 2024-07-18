@@ -20,21 +20,15 @@ if [ -d "${OEM_QWES_OVERRIDE_LICENSE_STORE}" ]; then
     chmod o+rwx "${OEM_QWES_OVERRIDE_LICENSE_STORE}"
     chmod o+rwx "${PFM_PATH}"
 
-    files=$(ls /var/cache/qwes/*.pfm 2> /dev/null | wc -l)
+    files=$(ls /usr/share/qwes/*.pfm 2> /dev/null | wc -l)
     if [ "$files"  != "0" ]; then
-         echo "Source location content"
-         ls /var/cache/qwes/
          echo "Copying licenses to license store location"
-         cp /var/cache/qwes/*.pfm "${OEM_QWES_OVERRIDE_LICENSE_STORE}"
+         cp /usr/share/qwes/*.pfm "${OEM_QWES_OVERRIDE_LICENSE_STORE}"
          sync
-         echo "Copy status is $?"
          chown system:system "${OEM_QWES_OVERRIDE_LICENSE_STORE}"/*.pfm
          echo "Destination location content"
          ls -l "${OEM_QWES_OVERRIDE_LICENSE_STORE}"
-         echo "Removing Source location files"
-         rm -rf /var/cache/qwes/*.pfm
     fi
-    chown system:system -R /var/cache/qwes/
  else
     echo "Failed to create License store!!!"
 fi
