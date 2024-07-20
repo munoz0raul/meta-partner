@@ -24,6 +24,11 @@ TOOLCHAIN:pn-pal = "gcc"
 TOOLCHAIN:pn-pa-pal-plugins = "gcc"
 TOOLCHAIN:pn-libdmabufheap = "gcc"
 TOOLCHAIN:pn-jsoncpp = "gcc"
+TOOLCHAIN:pn-bt-app = "gcc"
+TOOLCHAIN:pn-bt-cert = "gcc"
+TOOLCHAIN:pn-bthost-ipc = "gcc"
+TOOLCHAIN:pn-btvendorhal = "gcc"
+TOOLCHAIN:pn-fluoride = "gcc"
 
 # Distro Features
 DISTRO_FEATURES:append = " pulseaudio acl xattr selinux"
