@@ -1,0 +1,15 @@
+diff --git a/lib/systemd/system/sscrpcd.service b/lib/systemd/system/sscrpcd.service
+index b6cf495..e79676e 100644
+--- a/lib/systemd/system/sscrpcd.service
++++ b/lib/systemd/system/sscrpcd.service
+@@ -5,8 +5,8 @@
+ [Unit]
+ Description=sscrpcd Service
+ SourcePath=/usr/bin/sscrpcd
+-After=etc.mount var.mount
+-Requires=etc.mount var.mount
++After=var.mount
++Requires=var.mount
+ 
+ [Service]
+ User=system
