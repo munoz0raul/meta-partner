@@ -13,6 +13,8 @@ BBMASK += " \
     /meta-qcom-hwe/recipes-extended/logrotate/logrotate_%.bbappend \
 "
 
+# Use GCC by default, way too many different failures with clang
+TOOLCHAIN = "gcc"
 # Recipes requiring GCC instead of Clang
 TOOLCHAIN:pn-iw = "gcc"
 TOOLCHAIN:pn-systemd-boot = "gcc"
