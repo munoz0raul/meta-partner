@@ -1,5 +1,6 @@
 [Unit]
 Description=PulseAudio Sound Service
+Requires=sound.target
 After=sound.target
 
 [Service]
@@ -11,4 +12,4 @@ RestartSec=3
 StateDirectory=pulse
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=sound.target
