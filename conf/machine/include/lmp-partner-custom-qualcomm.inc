@@ -54,6 +54,7 @@ IMAGE_CLASSES_EXTRAS ?= ""
 IMAGE_CLASSES += "${IMAGE_CLASSES_EXTRAS}"
 
 # Sota / LmP customizations
+PREFERRED_PROVIDER_virtual/partconf = "partition-confs"
 PREFERRED_PROVIDER_virtual/kernel:qcm6490 ?= "linux-kernel-qcom"
 OSTREE_BOOTLOADER:qcm6490 ?= "none"
 EFI_PROVIDER:qcm6490 = "systemd-boot"
