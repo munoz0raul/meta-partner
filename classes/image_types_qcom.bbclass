@@ -6,7 +6,7 @@ inherit image_types
 IMAGE_TYPES += "qcomflash"
 
 # Default Image names
-SYSTEMIMAGE_TARGET ?= "system.img"
+ROOTFSIMAGE_TARGET ?= "rootfs.img"
 IMAGE_QCOMFLASH_ESPIMG ?= "${DEPLOY_DIR_IMAGE}/efi.bin"
 IMAGE_QCOMFLASH_FS_TYPE ??= "ext4"
 IMAGE_QCOMFLASH_ROOTFS ?= "${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.${IMAGE_QCOMFLASH_FS_TYPE}"
@@ -61,9 +61,9 @@ create_qcomflash_pkg() {
         install -m 0644 ${IMGDEPLOYDIR}/${IMAGE_LINK_NAME}.combined-dtb dtb.bin
     fi
 
-    # copy system.img
+    # copy rootfs.img
     if [ -f ${IMAGE_QCOMFLASH_ROOTFS} ]; then
-        install -m 0644 ${IMAGE_QCOMFLASH_ROOTFS} ${SYSTEMIMAGE_TARGET}
+        install -m 0644 ${IMAGE_QCOMFLASH_ROOTFS} ${ROOTFSIMAGE_TARGET}
     fi
 
     # Copy gpt_main.bin
