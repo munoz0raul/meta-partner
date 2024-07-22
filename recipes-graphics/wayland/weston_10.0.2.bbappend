@@ -1,30 +1,31 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-SRC_URI:append:qcom = " \
-    file://utilities-terminal.png \
-    file://background.jpg \
+LIC_FILES_CHKSUM:qcom = "file://COPYING;md5=d79ee9e66bb0f95d3386a7acae780b70 \
+                         file://libweston/compositor.c;endline=27;md5=b22751d2c88735d2dcb492b1c5a47242 \
 "
+SRC_URI:remove:qcom = "https://gitlab.freedesktop.org/wayland/weston/-/releases/${PV}/downloads/${BPN}-${PV}.tar.xz"
+SRC_URI:prepend:qcom = "git://git.codelinaro.org/clo/le/wayland/weston.git;protocol=https;branch=${SRCBRANCH} "
+SRCREV:qcom = "e00a1983d58f1e7fc3263a510c1133450c56573f"
+SRCBRANCH:qcom = "display.qclinux.1.0.r1-rel"
+S:qcom ="${WORKDIR}/git"
 
-FILES:${PN}:append:qcom = " \
-    ${datadir}/weston \
-"
+DEPENDS:append:qcom = " property-vault gbm display-hal-linux"
 
-PACKAGECONFIG:append:qcom = " wayland ${@bb.utils.contains('DISTRO_FEATURES', 'x11 wayland', 'xwayland', '', d)}"
+REQUIRED_DISTRO_FEATURES:remove:qcom = "opengl"
+
+EXTRA_OEMESON:append:qcom = " -Ddeprecated-wl-shell=true -Dbackend-default=auto -Dbackend-rdp=false"
+
+PACKAGECONFIG:remove:qcom = "kms"
+PACKAGECONFIG:append:qcom = " sdm disablepowerkey"
+
+# Override (extra dependencies)
 PACKAGECONFIG[xwayland] = "-Dxwayland=true,-Dxwayland=false,libxcursor xwayland"
+# Weston on SDM
+PACKAGECONFIG[sdm] = "-Dbackend-sdm=true,-Dbackend-sdm=false"
+# Weston with disabling display power key
+PACKAGECONFIG[disablepowerkey] = "-Ddisable-power-key=true,-Ddisable-power-key=false"
 
-# Needed due FILES related changes from meta-qcom-hwe
-ALLOW_EMPTY:${PN}-examples = "1"
+LDFLAGS:append:qcom = " -ldrmutils -ldisplaydebug -lglib-2.0"
+CXXFLAGS:append:qcom = " -I${STAGING_INCDIR}/sdm"
 
-do_compile:append:qcom() {
-    if [ "${@bb.utils.contains('PACKAGECONFIG', 'xwayland', 'yes', 'no', d)}" = "yes" ]; then
-        sed -i -e "s/^#xwayland=true/xwayland=true/g" ${WORKDIR}/weston.ini
-    fi
-}
-
-do_install:append:qcom() {
-    install -d ${D}${datadir}/weston/backgrounds
-    install -d ${D}${datadir}/weston/icon
-
-    install -m 0644 ${WORKDIR}/utilities-terminal.png ${D}${datadir}/weston/icon/utilities-terminal.png
-    install -m 0644 ${WORKDIR}/background.jpg ${D}${datadir}/weston/backgrounds/background.jpg
-}
+PACKAGE_ARCH:qcom = "${MACHINE_ARCH}"
