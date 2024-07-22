@@ -1,5 +1,6 @@
 [Unit]
 Description=PulseAudio Sound Service
+ConditionPathExistsGlob=/dev/snd/control*
 Requires=sound.target
 After=sound.target
 
