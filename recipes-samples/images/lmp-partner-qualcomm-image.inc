@@ -23,10 +23,6 @@ CORE_IMAGE_BASE_INSTALL:append:qcom = " \
     packagegroup-qcom-iot-base-utils \
 "
 
-# qcom uses weston-launch (via init_display.service)
-CORE_IMAGE_BASE_INSTALL:remove:qcom = " \
-    weston-init \
-"
 CORE_IMAGE_BASE_INSTALL_WAYLAND ?= ""
 CORE_IMAGE_BASE_INSTALL_WAYLAND:qcom = " \
     packagegroup-qcom-camera \
