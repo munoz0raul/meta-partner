@@ -1,6 +1,4 @@
-PROVIDES += "virtual/libgl"
-
-RPROVIDES:${PN} += "libegl libgl libgles1 libgles2"
+RPROVIDES:${PN} += "libegl libgles1 libgles2"
 
 fix_install_sota() {
     mkdir -p ${D}${datadir}
