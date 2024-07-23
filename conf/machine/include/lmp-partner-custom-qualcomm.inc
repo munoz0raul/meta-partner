@@ -39,6 +39,10 @@ DISTRO_FEATURES:append = " pulseaudio acl xattr selinux"
 # Qcom specific forks/updates
 PREFERRED_VERSION_wpa-supplicant ??= "2.10.qcom"
 
+# Adreno does not provide libgl, use mesa-gl
+PREFERRED_PROVIDER_virtual/mesa = "mesa-gl"
+PREFERRED_PROVIDER_virtual/libgl = "mesa-gl"
+
 # SELinux
 PREFERRED_PROVIDER_virtual/refpolicy = "refpolicy-mls"
 DISTRO_EXTRA_RDEPENDS:append = " ${@bb.utils.contains('DISTRO_FEATURES', 'selinux', 'packagegroup-selinux-minimal', '', d)}"
