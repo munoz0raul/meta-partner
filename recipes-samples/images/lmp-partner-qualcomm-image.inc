@@ -29,6 +29,7 @@ CORE_IMAGE_BASE_INSTALL_WAYLAND:qcom = " \
     packagegroup-qcom-display \
     packagegroup-qcom-fastcv \
     packagegroup-qcom-graphics \
+    packagegroup-qcom-opencv \
     packagegroup-qcom-sensors \
     packagegroup-qcom-video \
 "
