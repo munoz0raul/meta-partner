@@ -11,8 +11,6 @@ S:qcom ="${WORKDIR}/git"
 
 DEPENDS:append:qcom = " property-vault gbm display-hal-linux"
 
-REQUIRED_DISTRO_FEATURES:remove:qcom = "opengl"
-
 EXTRA_OEMESON:append:qcom = " -Ddeprecated-wl-shell=true -Dbackend-default=auto -Dbackend-rdp=false"
 
 PACKAGECONFIG:remove:qcom = "kms"
