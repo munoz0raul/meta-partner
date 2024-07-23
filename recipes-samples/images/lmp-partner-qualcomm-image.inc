@@ -31,7 +31,6 @@ CORE_IMAGE_BASE_INSTALL_WAYLAND:qcom = " \
     packagegroup-qcom-graphics \
     packagegroup-qcom-sensors \
     packagegroup-qcom-video \
-    packagegroup-qcom-iot-base-utils \
 "
 CORE_IMAGE_BASE_INSTALL_WAYLAND:append:qcm6490 = " \
     camera-server \
