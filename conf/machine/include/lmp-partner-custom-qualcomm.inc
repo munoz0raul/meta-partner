@@ -16,6 +16,7 @@ BBMASK += " \
 
 # Use GCC by default, way too many different failures with clang
 TOOLCHAIN = "gcc"
+RUNTIME = "gnu"
 # Recipes requiring GCC instead of Clang
 TOOLCHAIN:pn-iw = "gcc"
 TOOLCHAIN:pn-systemd-boot = "gcc"
