@@ -38,3 +38,10 @@ CORE_IMAGE_BASE_INSTALL_WAYLAND:qcom = " \
 CORE_IMAGE_BASE_INSTALL_WAYLAND:append:qcm6490 = " \
     camera-server \
 "
+
+# Replace default LmP users param to include fio in additional groups
+EXTRA_USERS_PARAMS = "\
+groupadd ${LMP_USER}; \
+useradd -p '${LMP_PASSWORD}' ${LMP_USER}; \
+usermod -a -G sudo,users,audio,video,plugdev ${LMP_USER}; \
+"
