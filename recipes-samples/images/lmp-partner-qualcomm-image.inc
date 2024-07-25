@@ -32,6 +32,7 @@ CORE_IMAGE_BASE_INSTALL_WAYLAND:qcom = " \
     packagegroup-qcom-opencv \
     packagegroup-qcom-sensors \
     packagegroup-qcom-video \
+    packagegroup-qcom-qim-product \
 "
 CORE_IMAGE_BASE_INSTALL_WAYLAND:append:qcm6490 = " \
     camera-server \
