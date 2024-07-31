@@ -15,6 +15,7 @@ CORE_IMAGE_BASE_INSTALL:append:qcom = " \
     kernel-module-qcacld-wlan \
     packagegroup-qcom-securemsm \
     udev-rules-qcom \
+    curl \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', '${CORE_IMAGE_BASE_INSTALL_WAYLAND}', '', d)} \
 "
 
