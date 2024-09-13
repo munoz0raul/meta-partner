@@ -134,9 +134,7 @@ After Fioctl is properly setup, it can be leveraged as a Git credential helper t
 
 Once your Factory has been created, it will build the source code for the RB3G2 and produce a Target. A Target is a secure over-the-air update but also provides the build artifacts for initial provisioning.
 
-<a name="NavigatetotheTargets" alt></a>
-### Navigate To the Targets Section of Your Factory
-
+1. Navigate To the Targets Section of Your Factory
 Click the latest Targets with the platform-devel Trigger.
 
 <p align="center">
@@ -252,7 +250,7 @@ Password: `fio`
 
 ---
 
-<a name="SSH" alt></a>
+<a name="Register Your Device" alt></a>
 ### Register Your Device
 
 Register your device with FoundriesFactory:
@@ -260,7 +258,7 @@ Register your device with FoundriesFactory:
 
 ---
 
-<a name="SSH" alt></a>
+<a name="Developer Workflows" alt></a>
 ## Developer Workflows
 
 FoundriesFactory produces targets, which are references to platform images and docker applications.
@@ -271,7 +269,7 @@ Your FoundriesFactory source code can be found here:
 The built targets can be found here:
 - `https://app.foundries.io/factories/<factory>/targets/`
 
-<a name="SSH" alt></a>
+<a name="Git Repositories:" alt></a>
 ### Git Repositories:
 
 1. `ci-scripts.git`: Configures your factory branches - `factory-config.yml`
@@ -281,7 +279,7 @@ The built targets can be found here:
 
 ---
 
-<a name="SSH" alt></a>
+<a name="Compose-Apps" alt></a>
 ## Compose-Apps
 
 Compose apps fill the gap for Factory devices in distributing applications.
@@ -289,7 +287,7 @@ Compose apps fill the gap for Factory devices in distributing applications.
 - To build your own compose applications, refer to `https://docs.foundries.io/latest/reference-manual/docker/compose-apps.html`
 - Your factory has some sample compose applications ready to deploy.
 
-<a name="SSH" alt></a>
+<a name="Qualcomm® AI Hub" alt></a>
 ### Qualcomm® AI Hub
 
 [Qualcomm® AI Hub](https://aihub.qualcomm.com/get-started) simplifies deploying AI models for vision, audio, and speech applications to edge devices. You can optimize, validate, and deploy your own AI models on hosted Qualcomm platform devices within minutes.
@@ -303,8 +301,8 @@ The applications below which have a prefix of `gst-ai` use the models from [AIHu
   - During runtime, the models will be placed in `/opt` and can be referenced in the compose command to instruct the application to use a specific model.
   - Please review the `gst-ai-classification` `docker-compose.yml` in `https://source.foundries.io/<factory>/containers.git` as an example of how to run a different model.
 
-<a name="Httpd Server Container" alt></a>
-### Httpd Server Container
+<a name="Httpd Server App" alt></a>
+### Httpd Server App
 
 This is a simple httpd server, built from a Dockerfile in the factory source code. Enable the ``shellhttpd`` compose app before deployment:
 
@@ -316,8 +314,8 @@ git commit -s -m “enable shellhttp” && git push
 
 This compose-app does not require any hardware other than a network connection.
 
-<a name="Qualcomm IMSDK GStreamer Samples Apps" alt></a>
-### Qualcomm IMSDK GStreamer Samples Apps
+<a name="Qualcomm IMSDK GStreamer Sample App" alt></a>
+### Qualcomm IMSDK GStreamer Sample App
 
 This is a development container for the gstreamer applications listed below. It provides the assembled binaries, models, and video files for the applications to consume. If you want to build your own gstreamer pipeline application, this would be the place to start.
 
@@ -330,7 +328,7 @@ The Video wall command-line application (``gst-concurrent-videoplay-composition`
 
 For a more detailed description please see [Qualcomm Linux Sample Apps](https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-50/gst-concurrent-videoplay-composition.html?product=1601111740013072&facet=Qualcomm%20Intelligent%20Multimedia%20SDK).
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ef5-2ybD-zA/0.jpg)](https://www.youtube.com/watch?v=ef5-2ybD-zA)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/TGe8TS7-ZTw/0.jpg)](https://www.youtube.com/watch?v=TGe8TS7-ZTw)
 
 Enable the ``gst-concurrent-videoplay-composition`` compose app before deployment:
 
