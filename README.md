@@ -1,15 +1,15 @@
 # _FoundriesFactory® The software platform that reinvents IoT_
 <p href="https://foundries.io/">
-    <img width="300" src="https://github.com/foundriesio/meta-partner-variscite/blob/main/images/foundries.io-Logo_standard-h.png">
+    <img width="300" src="https://github.com/foundriesio/meta-partner/blob/variscite/images/foundries.io-Logo_standard-h.png">
 </p>
 
 <p align="center">
-    <img width="800" src="https://github.com/foundriesio/meta-partner-variscite/blob/main/images/computer.png">
+    <img width="800" src="https://github.com/foundriesio/meta-partner/blob/variscite/images/computer.png">
 </p>
 
 # _Quick Start Guide_
 <p href="https://www.variscite.com/">
-    <img width="200" src="https://github.com/foundriesio/meta-partner-variscite/blob/main/images/Variscite_Logo_Transparent_HR.png">
+    <img width="200" src="https://github.com/foundriesio/meta-partner/blob/variscite/images/Variscite_Logo_Transparent_HR.png">
 </p>
 
 Variscite and Foundries.io deliver an end-to-end DevSecOps platform for embedded developers of IoT and Edge devices.
@@ -39,7 +39,7 @@ https://app.foundries.io/factories/+/variscite
 Create a new account if you do not have one, or continue with your existing Github or Google account.
 
 <p align="center">
-    <img width="800" src="https://github.com/foundriesio/meta-partner-variscite/blob/main/images/Image1.png">
+    <img width="800" src="https://github.com/foundriesio/meta-partner/blob/variscite/images/Image1.png">
 </p>
 <p align="center">Sign-Up</p>
 
@@ -53,7 +53,7 @@ Create a new account if you do not have one, or continue with your existing Gith
 _\* If you want to try FoundriesFactory on a different Variscite platform, create the Factory as suggested for VAR-SOM-MX8M-MINI/NANO and contact Foundries.io at contact@foundries.io._
 
 <p align="center">
-    <img width="800" src="https://github.com/foundriesio/meta-partner-variscite/blob/main/images/Image2.png">
+    <img width="800" src="https://github.com/foundriesio/meta-partner/blob/variscite/images/Image2.png">
 </p>
 <p align="center">Platform Selection</p>
 
@@ -74,7 +74,7 @@ Targets are a reference to a platform image and Docker applications. When develo
 The Targets tab of the Factory will become more useful as you begin to build your application and produce new Targets for the Factory to build.
 
 <p align="center">
-    <img width="800" src="https://github.com/foundriesio/meta-partner-variscite/blob/main/images/Image3.png">
+    <img width="800" src="https://github.com/foundriesio/meta-partner/blob/variscite/images/Image3.png">
 </p>
 <p align="center">Target List</p>
 
@@ -96,7 +96,7 @@ After your Factory setup completes, your device image and Factory tools will bec
 Click the latest Targets with the platform-devel Trigger.
 
 <p align="center">
-    <img width="800" src="https://github.com/foundriesio/meta-partner-variscite/blob/main/images/Image4.png">
+    <img width="800" src="https://github.com/foundriesio/meta-partner/blob/variscite/images/Image4.png">
 </p>
 <p align="center">Platform Devel</p>
 
@@ -108,7 +108,7 @@ Expand the run in the Runs section which corresponds with the name of the board 
 - ``imx-boot-<machine-name>``
 
 <p align="center">
-    <img width="800" src="https://github.com/foundriesio/meta-partner-variscite/blob/main/images/Image5.png">
+    <img width="800" src="https://github.com/foundriesio/meta-partner/blob/variscite/images/Image5.png">
 </p>
 <p align="center">Factory Image</p>
 
@@ -147,7 +147,7 @@ Organize all the files like the tree below:
 Set up the board for updating using the manufacturing tools:
 
 <p align="center">
-    <img width="600" src="https://github.com/foundriesio/meta-partner-variscite/blob/main/images/Image6.png">
+    <img width="600" src="https://github.com/foundriesio/meta-partner/blob/variscite/images/Image6.png">
 </p>
 <p align="center">Hardware Preparation</p>
 
@@ -173,7 +173,7 @@ Using a serial terminal program like minicom, connect to the port with if00 in t
     - Switch SW3 to SD as shown below.
 
 <p align="center">
-    <img width="500" src="https://github.com/foundriesio/meta-partner-variscite/blob/main/images/Image7.png">
+    <img width="500" src="https://github.com/foundriesio/meta-partner/blob/variscite/images/Image7.png">
 </p>
 <p align="center">BOOT Select</p>
 
