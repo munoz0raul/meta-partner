@@ -1,7 +1,5 @@
 # _Simplify the chaos of developing, securing and updating Linux-based IoT and Edge devices_
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ef5-2ybD-zA/0.jpg)](https://www.youtube.com/watch?v=ef5-2ybD-zA)
-
 # _Quick Start Guide_
 <p href="https://www.qualcomm.com/">
     <img width="200" src="https://github.com/munoz0raul/meta-partner/blob/qualcomm/images/qualcomm_logo.jpg">
@@ -100,9 +98,9 @@ Create a new account if you do not have one, or continue with your existing Gith
 
 _\* If you want to try FoundriesFactory on a different Qualcomm platform, create the Factory as suggested for Qualcomm RB3 Gen 2 Development Kit and contact Foundries.io at contact@foundries.io._
 
-<p align="center"><a href="https://www.w3schools.com">
-    <img width="800" src="https://github.com/munoz0raul/meta-partner/blob/qualcomm/images/qualcomm-image1.png">
-</a></p>
+<p align="center">
+    <img width="800" src="https://github.com/munoz0raul/meta-partner/blob/qualcomm/images/qualcomm-image2.png">
+</p>
 <p align="center">Platform Selection</p>
 
 NOTE: Based on the selected platform, the `<machine-name>` changes as shown in the table below:
@@ -136,7 +134,25 @@ After Fioctl is properly setup, it can be leveraged as a Git credential helper t
 
 Once your Factory has been created, it will build the source code for the RB3G2 and produce a Target. A Target is a secure over-the-air update but also provides the build artifacts for initial provisioning.
 
-1. Download the image: ```https://app.foundries.io/factories/<factory>/targets/1/artifacts/qcm6490/lmp-factory-image-qcm6490.qcomflash.tar.gz```
+<a name="NavigatetotheTargets" alt></a>
+### Navigate To the Targets Section of Your Factory
+
+Click the latest Targets with the platform-devel Trigger.
+
+<p align="center">
+    <img width="800" src="https://github.com/munoz0raul/meta-partner/blob/qualcomm/images/qualcomm-image3.png">
+</p>
+<p align="center">Platform Devel</p>
+
+Expand the run in the Runs section which corresponds with the name of the board and download the Factory image for that machine.
+
+- ``lmp-factory-image-qcm6490.qcomflash.tar.gz``
+
+<p align="center">
+    <img width="800" src="https://github.com/munoz0raul/meta-partner/blob/qualcomm/images/qualcomm-image4.png">
+</p>
+<p align="center">Factory Image</p>
+
 2. Extract the `tar.gz` into a known location.
 3. Open a terminal and change the directory into `lmp-factory-image-qcm6490`.
 4. The compressed archive contains the flashing tool “qdl”.
@@ -287,10 +303,10 @@ The applications below which have a prefix of `gst-ai` use the models from [AIHu
   - During runtime, the models will be placed in `/opt` and can be referenced in the compose command to instruct the application to use a specific model.
   - Please review the `gst-ai-classification` `docker-compose.yml` in `https://source.foundries.io/<factory>/containers.git` as an example of how to run a different model.
 
-<a name="shellhttpd" alt></a>
-### shellhttpd
+<a name="Httpd Server Container" alt></a>
+### Httpd Server Container
 
-This is a simple httpd server, built from a Dockerfile in the factory source code. Enable the shellhttpd compose app before deployment:
+This is a simple httpd server, built from a Dockerfile in the factory source code. Enable the ``shellhttpd`` compose app before deployment:
 
 ```bash
 git clone https://source.foundries.io/factories/<factory>/containers.git
@@ -300,8 +316,8 @@ git commit -s -m “enable shellhttp” && git push
 
 This compose-app does not require any hardware other than a network connection.
 
-<a name="qimsdk-lmp" alt></a>
-### qimsdk-lmp
+<a name="Qualcomm IMSDK GStreamer Samples Apps" alt></a>
+### Qualcomm IMSDK GStreamer Samples Apps
 
 This is a development container for the gstreamer applications listed below. It provides the assembled binaries, models, and video files for the applications to consume. If you want to build your own gstreamer pipeline application, this would be the place to start.
 
@@ -313,6 +329,8 @@ For more information, please see the project's [README](https://github.com/found
 The Video wall command-line application (``gst-concurrent-videoplay-composition``) facilitates concurrent video decode and playback for advanced video coding (AVC)-coded videos and performs composition on a display for video wall application. The application requires at least one input video file, which is expected to be an MP4 file with the AVC codec.
 
 For a more detailed description please see [Qualcomm Linux Sample Apps](https://docs.qualcomm.com/bundle/publicresource/topics/80-70014-50/gst-concurrent-videoplay-composition.html?product=1601111740013072&facet=Qualcomm%20Intelligent%20Multimedia%20SDK).
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ef5-2ybD-zA/0.jpg)](https://www.youtube.com/watch?v=ef5-2ybD-zA)
 
 Enable the ``gst-concurrent-videoplay-composition`` compose app before deployment:
 
