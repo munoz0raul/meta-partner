@@ -1,63 +1,4 @@
-# Qualcomm FoundriesFactory Reference Manual
-
-## Table of Contents
-
-- [Document Revision History](#document-revision-history)
-- [Definitions, Acronyms, and Abbreviations](#definitions-acronyms-and-abbreviations)
-- [Getting Started](#getting-started)
-  - [Qualcomm® Robotics RB3G2 Development Kit](#qualcomm-robotics-rb3g2-development-kit)
-  - [Serial Console](#serial-console)
-  - [Connect via WiFi](#connect-via-wifi)
-  - [Enabling Ethernet and USB](#enabling-ethernet-and-usb)
-  - [SSH](#ssh)
-  - [Register your device](#register-your-device)
-- [Developer Workflows](#developer-workflows)
-  - [Git Repositories](git-repositories)
-- [Compose-Apps](#compose-apps)
-  - [AIHub](#qualcomm-ai-hub)
-  - [shellhttpd](#shellhttpd)
-  - [qimsdk-lmp](#qimsdk-lmp)
-  - [gst-concurrent-videoplay-composition](#qimsdk-lmp)
-  - [gst-ai-classification](#gst-ai-classification)
-  - [gst-ai-daisychain-detection-classification](#gst-ai-daisychain-detection-classification)
-  - [gst-ai-monodepth](#gst-ai-monodepth)
-  - [gst-ai-object-detection](#gst-ai-object-detection)
-  - [gst-ai-parallel-inference](#gst-ai-parallel-inference)
-  - [gst-ai-pose-detection](#gst-ai-pose-detection)
-  - [gst-ai-segmentation](#gst-ai-segmentation)
-  - [gst-multi-camera-example](#gst-multi-camera-example)
-  - [Deploy](#deploy)
-- [Fioctl](#fioctl)
-  - [View Targets](#view-targets)
-  - [View Devices](#view-devices)
-  - [Change Device Tag](#view-devices)
-  - [Change Device Application](#change-device-application)
-  - [Deploy shellhttpd Application](#deploy-shellhttpd-application)
-  - [Deploy gst-concurrent-videoplay-composition Application](#deploy-gst-concurrent-videoplay-composition-application)
-  - [Deploy gst-ai-classification Application](#deploy-gst-ai-classification-application)
-  - [Deploy gst-ai-daisychain-detection-classification Application](#deploy-gst-ai-daisychain-detection-classification-application)
-  - [Deploy gst-ai-monodepth Application](#deploy-gst-ai-monodepth-application)
-  - [Deploy gst-ai-object-detection Application](#deploy-gst-ai-object-detection-application)
-  - [Deploy gst-ai-parallel-inference Application](#deploy-gst-ai-parallel-inference-application)
-  - [Deploy gst-ai-pose-detection Application](#deploy-gst-ai-pose-detection-application)
-  - [Deploy gst-ai-segmentation Application](#deploy-gst-ai-segmentation-application)
-  - [Deploy gst-multi-camera-example Application](#deploy-gst-multi-camera-example-application)
-  - [Enable/Disable Wireguard VPN](#enabledisable-wireguard-vpn)
-- [FoundriesFactory Images](#foundriesfactory-images)
-  - [LmP Factory Image](#lmp-factory-image)
-- [Wireguard VPN](#wireguard-vpn)
-- [Updating FoundriesFactory Images](#updating-foundriesfactory-images)
-- [Useful Links](#updating-foundriesfactory-images)
-
-## Document Revision History
-
-| Version | Date       | Comments        |
-|---------|------------|-----------------|
-| v0.1    | 2024-07-01 | Initial release |
-
-## Definitions, Acronyms, and Abbreviations
-
-| Variable        | Meaning                                                           |# _Simplify the chaos of developing, securing and updating Linux-based IoT and Edge devices_
+# _Simplify the chaos of developing, securing and updating Linux-based IoT and Edge devices_
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ef5-2ybD-zA/0.jpg)](https://www.youtube.com/watch?v=ef5-2ybD-zA)
 
@@ -146,7 +87,7 @@ https://app.foundries.io/factories/+/quamcomm
 Create a new account if you do not have one, or continue with your existing Github or Google account.
 
 <p align="center">
-    <img width="800" src="https://github.com/munoz0raul/meta-partner/blob/main/images/qualcomm-image1.png">
+    <img width="800" src="https://github.com/munoz0raul/meta-partner/blob/qualcomm/images/qualcomm-image1.png">
 </p>
 <p align="center">Sign-Up</p>
 
@@ -160,7 +101,7 @@ Create a new account if you do not have one, or continue with your existing Gith
 _\* If you want to try FoundriesFactory on a different Qualcomm platform, create the Factory as suggested for Qualcomm RB3 Gen 2 Development Kit and contact Foundries.io at contact@foundries.io._
 
 <p align="center">
-    <img width="800" src="https://github.com/munoz0raul/meta-partner/blob/main/images/qualcomm-image1.png">
+    <img width="800" src="https://github.com/munoz0raul/meta-partner/blob/qualcomm/images/qualcomm-image1.png">
 </p>
 <p align="center">Platform Selection</p>
 
