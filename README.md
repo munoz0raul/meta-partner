@@ -100,9 +100,9 @@ Create a new account if you do not have one, or continue with your existing Gith
 
 _\* If you want to try FoundriesFactory on a different Qualcomm platform, create the Factory as suggested for Qualcomm RB3 Gen 2 Development Kit and contact Foundries.io at contact@foundries.io._
 
-<p align="center">
+<p align="center"><a href="https://www.w3schools.com">
     <img width="800" src="https://github.com/munoz0raul/meta-partner/blob/qualcomm/images/qualcomm-image1.png">
-</p>
+</a></p>
 <p align="center">Platform Selection</p>
 
 NOTE: Based on the selected platform, the `<machine-name>` changes as shown in the table below:
